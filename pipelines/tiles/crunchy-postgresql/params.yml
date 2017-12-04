@@ -1,0 +1,62 @@
+pivnet_token: # [R] PivNet Access Token
+github_token: # [R] Your github token
+
+company_proxy_domain: # [O] proxy domain
+iaas_type: vsphere
+
+## Ops Manager installation meta data
+ops_mgr_ip: # [O] Ops Manager IP if behind proxy
+ops_mgr_host: # [R] Ops Manager FQDN, ex: opsmgr.example.com
+ops_mgr_usr: # [R] Ops Manager admin user
+ops_mgr_pwd: # [R] Ops Manager admin password
+
+product_name: crunchy-postgresql
+product_identifier: crunchy-postgresql
+product_version: ^03\.090510\..*$
+
+ops_mgr_generate_ssl_endpoint: /api/v0/certificates/generate
+
+singleton_jobs_az: # [R] Place singleton jobs in an AZ
+other_azs: # [R] Balance other jobs in AZ's
+network_name: # [R] Tile network name
+services_network_name: # [R] Services network name
+
+az_multi_select: # [R]
+consul_server_vm_type: # [R]
+consul_server_disk_type: # [R]
+consul_server_instance_count: # [R]
+postgresql_haproxy_vm_type: # [R]
+postgresql_haproxy_disk_type: # [R]
+smoke_tests_vm_type: # [R]
+smoke_tests_disk_type: # [R]
+small_vm_type: # [R]
+small_disk_type: # [R]
+small_postgresql_instance_count: # [R]
+small_postgresql_service_quota: # [R]
+medium_vm_type: # [R]
+medium_disk_type: # [R]
+medium_postgresql_instance_count: # [R]
+medium_postgresql_service_quota: # [R]
+large_vm_type: # [R]
+large_disk_type: # [R]
+large_postgresql_instance_count: # [R]
+large_postgresql_service_quota: # [R]
+extra-large_vm_type: # [R]
+extra-large_disk_type: # [R]
+extra-large_postgresql_instance_count: # [R]
+extra-large_postgresql_service_quota: # [R]
+
+crunchy_broker_instance_type: small
+crunchy_broker_instances: 1
+crunchy_broker_persistent_disk_size: 1024
+
+
+
+errands_to_disable: # (register_on_demand_service_broker|acceptance_tests|delete-all-service-instances-and-deregister-broker) 
+
+concourse_user:
+concourse_pwd:
+concourse_url:
+pipeline-name:
+team-name:
+upgrade-pipeline-name:
