@@ -24,33 +24,30 @@ services_network_name: # [R] Services network name
 az_multi_select: # [R]
 consul_server_vm_type: # [R]
 consul_server_disk_type: # [R]
-consul_server_instance_count: # [R]
+consul_server_instance_count: 3
 postgresql_haproxy_vm_type: # [R]
 postgresql_haproxy_disk_type: # [R]
 smoke_tests_vm_type: # [R]
 smoke_tests_disk_type: # [R]
 small_vm_type: # [R]
 small_disk_type: # [R]
-small_postgresql_instance_count: # [R]
-small_postgresql_service_quota: # [R]
+small_postgresql_instance_count: 2
+small_postgresql_service_quota: 10
 medium_vm_type: # [R]
 medium_disk_type: # [R]
-medium_postgresql_instance_count: # [R]
-medium_postgresql_service_quota: # [R]
+medium_postgresql_instance_count: 3
+medium_postgresql_service_quota: 10
 large_vm_type: # [R]
 large_disk_type: # [R]
-large_postgresql_instance_count: # [R]
-large_postgresql_service_quota: # [R]
+large_postgresql_instance_count: 3
+large_postgresql_service_quota: 10
 extra-large_vm_type: # [R]
 extra-large_disk_type: # [R]
-extra-large_postgresql_instance_count: # [R]
-extra-large_postgresql_service_quota: # [R]
-
+extra-large_postgresql_instance_count: 3
+extra-large_postgresql_service_quota: 10
 crunchy_broker_instance_type: small
 crunchy_broker_instances: 1
 crunchy_broker_persistent_disk_size: 1024
-
-
 
 errands_to_disable: # (register_on_demand_service_broker|acceptance_tests|delete-all-service-instances-and-deregister-broker) 
 

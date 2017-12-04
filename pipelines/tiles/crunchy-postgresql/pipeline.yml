@@ -131,7 +131,7 @@ jobs:
         - "*linux64*"
 
   - task: config-tile
-    file: pipelines-repo/tasks/config-rabbitmq/task.yml
+    file: pipelines-repo/tasks/config-crunchy/task.yml
     params:
       PRODUCT_IDENTIFIER: ((product_identifier))
       OPS_MGR_HOST: ((ops_mgr_host))
@@ -176,7 +176,6 @@ jobs:
       PIPELINE-NAME: ((pipeline-name))
       TEAM-NAME: ((team-name))
       UPGRADE-PIPELINE-NAME: ((upgrade-pipeline-name))
-
 
 - name: disable-errands
   plan:
