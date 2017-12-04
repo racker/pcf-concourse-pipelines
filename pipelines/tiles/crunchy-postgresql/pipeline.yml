@@ -33,8 +33,8 @@ resources:
   source:
     uri: ((github_repo))
     branch: ((github_branch))
-    username: ((github_username))
-    password: ((github_token))
+#    username: ((github_username))
+#    password: ((github_token))
 
 - name: pivnet-product
   type: pivnet
@@ -169,13 +169,6 @@ jobs:
       CRUNCHY_BROKER_INSTANCE_TYPE: ((crunchy_broker_instance_type))
       CRUNCHY_BROKER_INSTANCES: ((crunchy_broker_instances))
       CRUNCHY_BROKER_PERSISTENT_DISK_SIZE: ((crunchy_broker_persistent_disk_size))
-      ERRANDS_TO_DISABLE: ((errands_to_disable))
-      CONCOURSE_USER: ((concourse_user))
-      CONCOURSE_PWD: ((concourse_pwd))
-      CONCOURSE_URL: ((concourse_url))
-      PIPELINE-NAME: ((pipeline-name))
-      TEAM-NAME: ((team-name))
-      UPGRADE-PIPELINE-NAME: ((upgrade-pipeline-name))
 
 - name: disable-errands
   plan:
@@ -237,25 +230,25 @@ jobs:
       OPS_MGR_USR: ((ops_mgr_usr))
       OPS_MGR_PWD: ((ops_mgr_pwd))
 
-- name: set-upgrade-pipeline
-  plan:
-  - aggregate:
-    - get: pipelines-repo
-      passed: [apply-changes]
-    - get: pivnet-product
-      resource: pivnet-product
-      params:
-        globs:
-        - "*.pivotal"
-      passed: [apply-changes]
-      trigger: true
+# - name: set-upgrade-pipeline
+#   plan:
+#   - aggregate:
+#     - get: pipelines-repo
+#       passed: [apply-changes]
+#     - get: pivnet-product
+#       resource: pivnet-product
+#       params:
+#         globs:
+#         - "*.pivotal"
+#       passed: [apply-changes]
+#       trigger: true
 
-  - task: set-upgrade-pipeline
-    file: pipelines-repo/tasks/set-upgrade-pipeline/task.yml
-    params:
-      CONCOURSE_USERNAME: ((concourse_user))
-      CONCOURSE_PASSWD: ((concourse_pwd))
-      ATC_EXTERNAL_URL: ((concourse_url))
-      BUILD_PIPELINE_NAME: ((pipeline-name))
-      BUILD_TEAM_NAME: ((team-name))
-      UPGRADE_PIPELINE_NAME: ((upgrade-pipeline-name))
+#   - task: set-upgrade-pipeline
+#     file: pipelines-repo/tasks/set-upgrade-pipeline/task.yml
+#     params:
+#       CONCOURSE_USERNAME: ((concourse_user))
+#       CONCOURSE_PASSWD: ((concourse_pwd))
+#       ATC_EXTERNAL_URL: ((concourse_url))
+#       BUILD_PIPELINE_NAME: ((pipeline-name))
+#       BUILD_TEAM_NAME: ((team-name))
+#       UPGRADE_PIPELINE_NAME: ((upgrade-pipeline-name))
