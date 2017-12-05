@@ -68,70 +68,70 @@ PRODUCT_PROPERTIES=$(
         "value": ($AZ_MULTI_SELECT | split(",") | map(.))
       },
       ".properties.consul_server_vm_type": {
-        "value": $CONSUL_SERVER_VM_TYPE"
+        "value": "$CONSUL_SERVER_VM_TYPE"
       },
       ".properties.consul_server_disk_type": {
-        "value": $CONSUL_SERVER_DISK_TYPE"
+        "value": "$CONSUL_SERVER_DISK_TYPE"
       },
       ".properties.postgresql_haproxy_vm_type": {
-        "value": $POSTGRESQL_HAPROXY_VM_TYPE"
+        "value": "$POSTGRESQL_HAPROXY_VM_TYPE"
       },
       ".properties.postgresql_haproxy_disk_type": {
-        "value": $POSTGRESQL_HAPROXY_DISK_TYPE"
+        "value": "$POSTGRESQL_HAPROXY_DISK_TYPE"
       },
       ".properties.smoke_tests_vm_type": {
-        "value": $SMOKE_TESTS_VM_TYPE"
+        "value": "$SMOKE_TESTS_VM_TYPE"
       },
       ".properties.smoke_tests_disk_type": {
-        "value": $SMOKE_TESTS_DISK_TYPE"
+        "value": "$SMOKE_TESTS_DISK_TYPE"
       },
       ".properties.small_vm_type": {
-        "value": $SMALL_VM_TYPE"
+        "value": "$SMALL_VM_TYPE"
       },
       ".properties.small_disk_type": {
-        "value": $SMALL_DISK_TYPE"
+        "value": "$SMALL_DISK_TYPE"
       },
       ".properties.small_postgresql_instance_count": {
-        "value": $SMALL_POSTGRESQL_INSTANCE_COUNT"
+        "value": "$SMALL_POSTGRESQL_INSTANCE_COUNT"
       },
       ".properties.small_postgresql_service_quota": {
-        "value": $SMALL_POSTGRESQL_SERVICE_QUOTA"
+        "value": "$SMALL_POSTGRESQL_SERVICE_QUOTA"
       },
       ".properties.medium_vm_type": {
-        "value": $MEDIUM_VM_TYPE"
+        "value": "$MEDIUM_VM_TYPE"
       },
       ".properties.medium_disk_type": {
-        "value": $MEDIUM_DISK_TYPE"
+        "value": "$MEDIUM_DISK_TYPE"
       },
       ".properties.medium_postgresql_instance_count": {
-        "value": $MEDIUM_POSTGRESQL_INSTANCE_COUNT"
+        "value": "$MEDIUM_POSTGRESQL_INSTANCE_COUNT"
       },
       ".properties.medium_postgresql_service_quota": {
-        "value": $MEDIUM_POSTGRESQL_SERVICE_QUOTA"
+        "value": "$MEDIUM_POSTGRESQL_SERVICE_QUOTA"
       },
       ".properties.large_vm_type": {
-        "value": $LARGE_VM_TYPE"
+        "value": "$LARGE_VM_TYPE"
       },
       ".properties.large_disk_type": {
-        "value": $LARGE_DISK_TYPE"
+        "value": "$LARGE_DISK_TYPE"
       },
       ".properties.large_postgresql_instance_count": {
-        "value": $LARGE_POSTGRESQL_INSTANCE_COUNT"
+        "value": "$LARGE_POSTGRESQL_INSTANCE_COUNT"
       },
       ".properties.large_postgresql_service_quota": {
-        "value": $LARGE_POSTGRESQL_SERVICE_QUOTA"
+        "value": "$LARGE_POSTGRESQL_SERVICE_QUOTA"
       },
       ".properties.extra-large_vm_type": {
-        "value": $EXTRA_LARGE_VM_TYPE"
+        "value": "$EXTRA_LARGE_VM_TYPE"
       },
       ".properties.extra-large_disk_type": {
-        "value": $EXTRA_LARGE_DISK_TYPE"
+        "value": "$EXTRA_LARGE_DISK_TYPE"
       },
       ".properties.extra-large_postgresql_instance_count": {
-        "value": $EXTRA_LARGE_POSTGRESQL_INSTANCE_COUNT"
+        "value": "$EXTRA_LARGE_POSTGRESQL_INSTANCE_COUNT"
       },
       ".properties.extra-large_postgresql_service_quota": {
-        "value": $EXTRA_LARGE_POSTGRESQL_SERVICE_QUOTA"
+        "value": "$EXTRA_LARGE_POSTGRESQL_SERVICE_QUOTA"
       }
     }
     '
