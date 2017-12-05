@@ -1,0 +1,44 @@
+pivnet_token: # [R] PivNet Access Token
+github_token: # [R] Your github token
+
+company_proxy_domain: # [O] proxy domain
+iaas_type: vsphere
+runtime: windows # Causes stemcell-uploader to use windows stemcell
+
+## Ops Manager installation meta data
+ops_mgr_ip: # [O] Ops Manager IP if behind proxy
+ops_mgr_host: # [R] Ops Manager FQDN, ex: opsmgr.example.com
+ops_mgr_usr: # [R] Ops Manager admin user
+ops_mgr_pwd: # [R] Ops Manager admin password
+
+product_name: p-windows-runtime
+product_identifier: p-windows-runtime
+product_version: ^1\.12\..*$
+
+ops_mgr_generate_ssl_endpoint: /api/v0/certificates/generate
+
+singleton_jobs_az: # [R] Place singleton jobs in an AZ
+other_azs: # [R] Balance other jobs in AZ's
+network_name: # [R] Tile network name
+
+bosh_ssh_enabled: false # BETA: Enable BOSH-native SSH support on all VMs.
+windows_admin_password: use_default # use_default generates a random password. set_password allows you to set a password.
+windows_admin_password_set_password_password: # Required only if windows_admin_password is set to set_password.
+system_logging: disable # Set to enable or disable
+system_logging_enable_syslog_host: # Required only if system_logging is enabled.
+system_logging_enable_syslog_port: # Required only if system_logging is enabled.
+system_logging_enable_syslog_protocol: # Required only if system_logging is enabled.
+windows_diego_cell_placement_tags: # If set, configures an Isolation Segment with the Cloud Controller.
+
+errands_to_disable: # (install-hwc-buildpack)
+
+concourse_user:
+concourse_pwd:
+concourse_url:
+pipeline-name:
+team-name:
+upgrade-pipeline-name:
+
+diego_cell_instance_type: large
+diego_cell_instances: 3
+hwc_errand_instance_type: large
