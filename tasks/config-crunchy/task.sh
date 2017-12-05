@@ -54,10 +54,10 @@ PRODUCT_PROPERTIES=$(
   --arg large_disk_type "$LARGE_DISK_TYPE" \
   --argjson large_postgresql_instance_count $LARGE_POSTGRESQL_INSTANCE_COUNT \
   --argjson large_postgresql_service_quota $LARGE_POSTGRESQL_SERVICE_QUOTA \
-  --arg extra-large_vm_type "$EXTRA-LARGE_VM_TYPE" \
-  --arg extra-large_disk_type "$EXTRA-LARGE_DISK_TYPE" \
-  --argjson extra-large_postgresql_instance_count ${EXTRA_LARGE_POSTGRESQL_INSTANCE_COUNT} \
-  --argjson extra-large_postgresql_service_quota ${EXTRA_LARGE_POSTGRESQL_SERVICE_QUOTA} \
+  --arg extra-large_vm_type "$EXTRA_LARGE_VM_TYPE" \
+  --arg extra-large_disk_type "$EXTRA_LARGE_DISK_TYPE" \
+  --argjson extra-large_postgresql_instance_count $EXTRA_LARGE_POSTGRESQL_INSTANCE_COUNT \
+  --argjson extra-large_postgresql_service_quota $EXTRA_LARGE_POSTGRESQL_SERVICE_QUOTA \
   --arg crunchy_broker_instance_type "$CRUNCHY_BROKER_INSTANCE_TYPE" \
   --arg crunchy_broker_instances "$CRUNCHY_BROKER_INSTANCES" \
   --arg crunchy_broker_persistent_disk_size "$CRUNCHY_BROKER_PERSISTENT_DISK_SIZE" \
