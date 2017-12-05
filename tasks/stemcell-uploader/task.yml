@@ -14,6 +14,7 @@ params:
   NO_PROXY:
   OPS_MGR_IP:
   IAAS_TYPE:
+  RUNTIME:
 
 inputs:
   - name: pivnet-product

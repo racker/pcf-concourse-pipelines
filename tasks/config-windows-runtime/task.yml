@@ -25,7 +25,6 @@ params:
   DIEGO_CELL_INSTANCE_TYPE:
   DIEGO_CELL_INSTANCES:
   HWC_ERRAND_INSTANCE_TYPE:
-  RUNTIME:
 
 inputs:
   - name: pipelines-repo
