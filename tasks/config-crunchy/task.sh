@@ -122,16 +122,16 @@ PRODUCT_PROPERTIES=$(
         "value": $large_postgresql_service_quota
       },
       ".properties.extra-large_vm_type": {
-        "value": $extra_large_vm_type
+        "value": $extra-large_vm_type
       },
       ".properties.extra-large_disk_type": {
-        "value": $extra_large_disk_type
+        "value": $extra-large_disk_type
       },
       ".properties.extra-large_postgresql_instance_count": {
-        "value": $extra_large_postgresql_instance_count
+        "value": $extra-large_postgresql_instance_count
       },
       ".properties.extra-large_postgresql_service_quota": {
-        "value": $extra_large_postgresql_service_quota
+        "value": $extra-large_postgresql_service_quota
       }
     }
     '
