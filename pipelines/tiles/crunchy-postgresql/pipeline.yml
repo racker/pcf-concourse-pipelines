@@ -12,21 +12,21 @@ resources:
   source:
     user: pivotal-cf
     repository: om
-    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
+#    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
 
 - name: pivnet-cli
   type: github-release
   source:
     user: pivotal-cf
     repository: pivnet-cli
-    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
+#    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
 
 - name: jq
   type: github-release
   source:
     user: stedolan
     repository: jq
-    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
+#    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
 
 - name: pipelines-repo
   type: git
@@ -162,10 +162,10 @@ jobs:
       LARGE_DISK_TYPE: ((large_disk_type))
       LARGE_POSTGRESQL_INSTANCE_COUNT: ((large_postgresql_instance_count))
       LARGE_POSTGRESQL_SERVICE_QUOTA: ((large_postgresql_service_quota))
-      EXTRA-LARGE_VM_TYPE: ((extra-large_vm_type))
-      EXTRA-LARGE_DISK_TYPE: ((extra-large_disk_type))
-      EXTRA-LARGE_POSTGRESQL_INSTANCE_COUNT: ((extra-large_postgresql_instance_count))
-      EXTRA-LARGE_POSTGRESQL_SERVICE_QUOTA: ((extra-large_postgresql_service_quota))
+      EXTRA_LARGE_VM_TYPE: ((extra_large_vm_type))
+      EXTRA_LARGE_DISK_TYPE: ((extra_large_disk_type))
+      EXTRA_LARGE_POSTGRESQL_INSTANCE_COUNT: ((extra_large_postgresql_instance_count))
+      EXTRA_LARGE_POSTGRESQL_SERVICE_QUOTA: ((extra_large_postgresql_service_quota))
       CRUNCHY_BROKER_INSTANCE_TYPE: ((crunchy_broker_instance_type))
       CRUNCHY_BROKER_INSTANCES: ((crunchy_broker_instances))
       CRUNCHY_BROKER_PERSISTENT_DISK_SIZE: ((crunchy_broker_persistent_disk_size))

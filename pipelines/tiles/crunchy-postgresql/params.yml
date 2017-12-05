@@ -41,10 +41,10 @@ large_vm_type: # [R]
 large_disk_type: # [R]
 large_postgresql_instance_count: 3
 large_postgresql_service_quota: 10
-extra-large_vm_type: # [R]
-extra-large_disk_type: # [R]
-extra-large_postgresql_instance_count: 3
-extra-large_postgresql_service_quota: 10
+extra_large_vm_type: # [R]
+extra_large_disk_type: # [R]
+extra_large_postgresql_instance_count: 3
+extra_large_postgresql_service_quota: 10
 crunchy_broker_instance_type: small
 crunchy_broker_instances: 1
 crunchy_broker_persistent_disk_size: 1024
