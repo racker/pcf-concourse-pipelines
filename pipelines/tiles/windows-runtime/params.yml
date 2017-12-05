@@ -1,5 +1,7 @@
 pivnet_token: # [R] PivNet Access Token
 github_token: # [R] Your github token
+github_repo:
+github_branch:
 
 company_proxy_domain: # [O] proxy domain
 iaas_type: vsphere
