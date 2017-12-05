@@ -152,6 +152,7 @@ jobs:
       DIEGO_CELL_INSTANCE_TYPE: ((diego_cell_instance_type))
       DIEGO_CELL_INSTANCES: ((diego_cell_instances))
       HWC_ERRAND_INSTANCE_TYPE: ((hwc_errand_instance_type))
+      RUNTIME: ((runtime))
 
 - name: disable-errands
   plan:
