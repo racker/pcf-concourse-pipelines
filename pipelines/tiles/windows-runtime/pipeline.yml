@@ -149,6 +149,9 @@ jobs:
       SYSTEM_LOGGING_ENABLE_SYSLOG_PORT: ((system_logging_enable_syslog_port))
       SYSTEM_LOGGING_ENABLE_SYSLOG_PROTOCOL: ((system_logging_enable_syslog_protocol))
       WINDOWS_DIEGO_CELL_PLACEMENT_TAGS: ((windows_diego_cell_placement_tags))
+      DIEGO_CELL_INSTANCE_TYPE: ((diego_cell_instance_type))
+      DIEGO_CELL_INSTANCES: ((diego_cell_instances))
+      HWC_ERRAND_INSTANCE_TYPE: ((hwc_errand_instance_type))
 
 - name: disable-errands
   plan:
