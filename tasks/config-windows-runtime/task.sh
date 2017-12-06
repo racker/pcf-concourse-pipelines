@@ -51,7 +51,7 @@ PRODUCT_PROPERTIES=$(
     +
     if $windows_admin_password == "set_password" then
     {
-     ".properties.windows_admin_password_set_password_password": {
+     ".properties.windows_admin_password_set_password.password": {
         "value": $windows_admin_password_set_password_password
       }
     }
