@@ -79,11 +79,19 @@ PRODUCT_PROPERTIES=$(
     else .
     end
     +
+    if $windows_diego_cell_placement_tags == "null" then
     {
       ".properties.windows_diego_cell.placement_tags": {
-        "value": $windows_diego_cell_placement_tags
+        "value": ""
       }
     }
+    else
+    {
+      ".properties.windows_diego_cell.placement_tags": {
+        "value": "$windows_diego_cell_placement_tags"
+      }
+    }
+    end
     '
 )
 
