@@ -132,7 +132,7 @@ jobs:
         - "*linux64*"
 
   - task: config-tile
-    file: pipelines-repo/tasks/windows-runtime/task.yml
+    file: pipelines-repo/tasks/config-windows-runtime/task.yml
     params:
       PRODUCT_IDENTIFIER: ((product_identifier))
       OPS_MGR_HOST: ((ops_mgr_host))

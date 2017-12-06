@@ -32,4 +32,4 @@ inputs:
   - name: jq
 
 run:
-  path: pipelines-repo/tasks/config-crunchy/task.sh
+  path: pipelines-repo/tasks/config-windows-runtime/task.sh
