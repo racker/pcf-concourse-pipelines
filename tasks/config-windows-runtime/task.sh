@@ -41,9 +41,6 @@ PRODUCT_PROPERTIES=$(
     '
     . +
     {
-      ".properties.az_multi_select": {
-        "value": ($az_multi_select | split(",") | map(.))
-      },
       ".properties.bosh_ssh_enabled": {
         "value": $bosh_ssh_enabled
       },
