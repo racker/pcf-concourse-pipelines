@@ -51,8 +51,10 @@ PRODUCT_PROPERTIES=$(
     +
     if $windows_admin_password == "set_password" then
     {
-     ".properties.windows_admin_password_set_password.password": {
-        "value": $windows_admin_password_set_password_password
+     ".properties.windows_admin_password.set_password.password": {
+        "value": {
+          "secret": $windows_admin_password_set_password_password
+        }
       }
     }
     else .
@@ -64,7 +66,7 @@ PRODUCT_PROPERTIES=$(
       }
     }
     +
-    if $system_logging == "enabled" then
+    if $system_logging == "enable" then
     {
       ".properties.system_logging.enable.syslog_host": {
         "value": $system_logging_enable_syslog_host
@@ -81,8 +83,8 @@ PRODUCT_PROPERTIES=$(
     +
     if $windows_diego_cell_placement_tags == "null" then
     {
-      ".properties.windows_diego_cell.placement_tags": {
-        "value": ""
+      ".windows_diego_cell.placement_tags": {
+        "value": null
       }
     }
     else
