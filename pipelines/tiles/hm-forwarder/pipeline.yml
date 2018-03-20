@@ -1,0 +1,132 @@
+resource_types:
+- name: pivnet
+  type: docker-image
+  source:
+    repository: pivotalcf/pivnet-resource
+    tag: latest-final
+
+resources:
+
+- name: om-cli
+  type: github-release
+  source:
+    user: pivotal-cf
+    repository: om
+    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
+
+- name: pcf-pipelines
+  type: git
+  source:
+    uri: ((github_repo))
+    branch: ((github_branch))
+    username: ((github_username))
+    password: ((github_token))
+
+- name: forwarder-tile
+  type: github-release
+  source:
+    user: pivotalservices
+    repository: bosh-hm-forwarder-tile
+    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
+
+jobs:
+- name: upload-product
+  plan:
+  - aggregate:
+    - get: pcf-pipelines
+    - get: forwarder-tile
+
+  - task: upload-tile-and-stemcell
+    file: pcf-pipelines/tasks/upload-product-and-brkt-stemcell/task.yml
+    input_mapping: {pivnet-product: forwarder-tile}
+    params:
+      IAAS: {{iaas_type}}
+      OPSMAN_DOMAIN_OR_IP_ADDRESS: {{opsman_domain_or_ip_address}}
+      OPS_MGR_USR: {{opsman_admin_username}}
+      OPS_MGR_PWD: {{opsman_admin_password}}
+      PIVNET_API_TOKEN: {{pivnet_token}}
+      NO_PROXY: ""
+      OM_IP: ""
+      S3_STEMCELL_ENDPOINT: {{brkt_s3_endpoint}}
+      S3_STEMCELL_BUCKET_REGION: {{brkt_s3_stemcell_bucket_region}}
+      S3_STEMCELL_BUCKET: {{brkt_s3_stemcell_bucket}}
+
+  - task: stage-tile
+    file: pcf-pipelines/tasks/stage-product/task.yml
+    params:
+      OPSMAN_USERNAME: {{opsman_admin_username}}
+      OPSMAN_PASSWORD: {{opsman_admin_password}}
+      OPSMAN_DOMAIN_OR_IP_ADDRESS: {{opsman_domain_or_ip_address}}
+      PRODUCT_NAME: {{product_name}}
+      REPLICATOR_NAME: ""
+
+- name: config-product
+  plan:
+  - aggregate:
+    - get: pcf-pipelines
+      passed: [upload-product]
+      trigger: true
+    - get: om-cli
+      params:
+        globs:
+        - "*-linux"
+
+  - task: config-tile
+    file: pcf-pipelines/tasks/config-hm-forwarder/task.yml
+    params:
+      PRODUCT_IDENTIFIER: ((product_name))
+      OPS_MGR_HOST: ((opsman_domain_or_ip_address))
+
+
+- name: apply-changes
+  plan:
+  - aggregate:
+    - get: pcf-pipelines
+      trigger: true
+      passed: [config-product]
+
+  - task: apply-changes
+    file: pcf-pipelines/tasks/apply-changes/task.yml
+    params:
+      OPSMAN_DOMAIN_OR_IP_ADDRESS: ((opsman_domain_or_ip_address))
+      OPSMAN_USERNAME: ((opsman_admin_username))
+      OPSMAN_PASSWORD: ((opsman_admin_password))
+
+- name: update-hm-forwarder-ip-in-bosh
+  plan:
+  - aggregate:
+    - get: pcf-pipelines
+      passed: [apply-changes]
+    - get: om-cli
+      params:
+        globs:
+        - "*-linux"
+      trigger: true
+
+  - task: update-hm-forwarder-ip
+    file: pcf-pipelines/tasks/update-hm-forwarder-ip/task.yml
+    params:
+      OPS_MGR_HOST: ((opsman_domain_or_ip_address))
+      OPS_MGR_USR: ((opsman_admin_username))
+      OPS_MGR_PWD: ((opsman_admin_password))
+
+- name: post-apply-changes
+  plan:
+  - aggregate:
+    - get: pcf-pipelines
+      passed: [update-hm-forwarder-ip-in-bosh]
+      trigger: true
+
+  - task: wait-for-opsman-to-clear
+    file: pcf-pipelines/tasks/wait-opsman-clear/task.yml
+    params:
+      OPSMAN_USERNAME: {{opsman_admin_username}}
+      OPSMAN_PASSWORD: {{opsman_admin_password}}
+      OPSMAN_DOMAIN_OR_IP_ADDRESS: {{opsman_domain_or_ip_address}}
+
+  - task: apply-changes
+    file: pcf-pipelines/tasks/apply-changes/task.yml
+    params:
+      OPSMAN_DOMAIN_OR_IP_ADDRESS: ((opsman_domain_or_ip_address))
+      OPSMAN_USERNAME: ((opsman_admin_username))
+      OPSMAN_PASSWORD: ((opsman_admin_password))

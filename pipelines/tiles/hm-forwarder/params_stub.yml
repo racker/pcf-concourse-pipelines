@@ -1,0 +1,11 @@
+product_name: bosh-hm-forwarder
+
+## Get this from the OPS Manager API docs for your release. Possible values are
+## - /api/v0/certificates/generate (for 1.10)
+## - /api/v0/rsa_certificates (for 1.9)
+singleton_jobs_az: us-west-2a # [R] Place singleton jobs in an AZ
+other_azs: us-west-2a # [R] AZ's to balance other jobs
+
+## Start hm-forwader specifics
+network_name: hm-forwarder  # [R] Tile network name. NOTE: hm-forwader requires a network that spans a single subnet.
+hm_forwarder_instance_type: automatic
